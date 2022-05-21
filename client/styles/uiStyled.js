@@ -4,7 +4,6 @@ import background from '../assets/images/background.jpg'
 export const Container = styled.div`
     height:100vh;
     /* background-color:rgb(80, 227, 194); */
-    background:url(${background});
     position:relative;
 `
 

@@ -6,7 +6,7 @@ export const FormWrapper = styled.form`
 
 export const FormGroup = styled.div`
     display:block;
-    width:400px;
+    width:500px;
     margin:12px auto;
 `
 export const FormLabel = styled.label`
@@ -31,7 +31,7 @@ export const TextArea = styled.textarea`
     padding:10px;
     background-color:#fff;
     width:100%;
-    height:300px;
+    height:200px;
     resize:none;
     border-radius:4px;
     border:1px solid #d1d5db;
@@ -54,5 +54,9 @@ export const SubmitButton = styled.button`
     &:hover {
         background-color:#24803e;
     }
+`
 
+export const Error = styled.span`
+    font-size:12px; 
+    color:#e05634;
 `

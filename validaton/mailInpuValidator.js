@@ -16,7 +16,10 @@ const mailInputValidator = (data) => {
     }
 
     if(validator.isEmpty(data.email)) {
-        errors.email = "Text field is required."
+        errors.email = "Text field is required.";
+        if(!validator.isEmail(data.email)) {
+            errors.email = "Please input a valid email address.";
+        }
     }
 
     if(validator.isEmpty(data.message)) {

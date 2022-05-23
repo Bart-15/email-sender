@@ -7,7 +7,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js",
     "client": "npm run dev --prefix client",
-    "dev": "concurrently \"npm run start\" \"npm start client\""
+    "dev": "concurrently \"npm run start\" \"npm start client\"",
+    "heroku-postbuild":"NPM_CONFIG_PRODUCTION=false"
   },
   "keywords": [],
   "author": "",

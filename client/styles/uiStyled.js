@@ -22,20 +22,33 @@ export const Card = styled.div`
     border-radius: 12px;
     border: 1px solid rgba(209, 213, 219, 0.3);
     color:#333;
-    max-width:700px;
+    width:383px;
+    padding: 15px 15px 15px 15px;
+
+    @media ${(props) => props.theme.breakpoints.md}{
+        width:450px;
+    }
+
+    @media ${(props) => props.theme.breakpoints.xl}{
+        width:700px;
+    }
     `
 
-export const Title = styled.h4`
+export const TextHeader = styled.h3`
     text-align: center;
-    text-shadow: 1px 2px 4px rgba(0, 0, 0, 0.5);
-    color:#04060a;
     font-size:30px;
+    color:${props => props.theme.colors.accent1};
     padding:10px 10px 0 10px;
+    @media ${(props) => props.theme.breakpoints.md}{
+        font-size:40px;
+    }
+
 `
 
 export const SmallText = styled.p`
     text-align: center;
-    padding:0px 5px 0px 5px;
-    color:#4b5663;
+    padding:0px 10px 0px 10px;
+    color:${props => props.theme.colors.accent1};
+
 `
 

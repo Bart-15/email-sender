@@ -7,7 +7,6 @@ require('dotenv').config({path:'./.env'});
 const PORT = process.env.PORT || 3000;
 const api = process.env.API
 
-
 // lost of all routes;
 const emailSender = require('./routes/emailSender')
 

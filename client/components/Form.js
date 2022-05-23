@@ -4,7 +4,7 @@ import axios from 'axios'
 import {
     FormContainer, 
     Card,
-    Title,
+    TextHeader,
     SmallText 
   } from '../styles/uiStyled';
   
@@ -25,6 +25,7 @@ const Form = () => {
     const formRef = useRef();
     const [isMessage, isSetMessage] = useState("");
     const [errors, setErrors] = useState({})
+    const [isBtnDisabled, isSetBtnDisabled] = useState(false)
     
     const [name, setName] = useState("");
     const [email, setEmail] = useState("");
@@ -34,6 +35,7 @@ const Form = () => {
     const BASE_URL = 'http://localhost:5000/api/v1'
     const onSubmit = async (e) => {
       e.preventDefault();
+      isSetBtnDisabled(true)
       try{
         await axios.post(`${BASE_URL}/sendmail`, {name, email, message});
         reset();
@@ -43,6 +45,7 @@ const Form = () => {
         }, 2000)
       }catch(error) {
         setErrors(error.response ?  error.response.data : {})
+        isSetBtnDisabled(false)
       }
     }
 
@@ -53,13 +56,14 @@ const Form = () => {
       setEmail("");
       setMessage("");
       setErrors({}); 
+      isSetBtnDisabled(false)
     }
 
     return (
     <>  
       <FormContainer>
         <Card>
-          <Title>Please get in touch and our expert support team will answer all your questions.</Title>
+          <TextHeader>Contact Us</TextHeader>
           <SmallText>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</SmallText>
           <FormWrapper onSubmit={onSubmit} >
             <FormGroup>
@@ -79,7 +83,7 @@ const Form = () => {
               <SmallText>{isMessage ? isMessage : ""}</SmallText>
             </FormGroup>
             <FormGroup>
-              <SubmitButton type="submit" >Submit</SubmitButton>
+              <SubmitButton type="submit" disabled={isBtnDisabled}>{isBtnDisabled ? "Please wait..." : "Submit"}</SubmitButton>
             </FormGroup>
           </FormWrapper>
         </Card>

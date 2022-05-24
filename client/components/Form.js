@@ -32,7 +32,8 @@ const Form = () => {
     const [message, setMessage] = useState("");
 
 
-    const BASE_URL = 'http://localhost:5000/api/v1'
+    const BASE_URL = process.env.BASE_API_URL
+    console.log(process.env.BASE_API_URL)
     const onSubmit = async (e) => {
       e.preventDefault();
       isSetBtnDisabled(true)
